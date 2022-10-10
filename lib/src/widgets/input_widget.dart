@@ -85,6 +85,7 @@ class InternationalPhoneNumberInput extends StatefulWidget {
   final Iterable<String>? autofillHints;
 
   final List<String>? countries;
+  final bool readOnly;
 
   InternationalPhoneNumberInput(
       {Key? key,
@@ -124,7 +125,8 @@ class InternationalPhoneNumberInput extends StatefulWidget {
       this.focusNode,
       this.cursorColor,
       this.autofillHints,
-      this.countries})
+      this.countries,
+      this.readOnly = false})
       : super(key: key);
 
   @override
@@ -138,6 +140,7 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
   Country? country;
   List<Country> countries = [];
   bool isNotValid = true;
+  bool readOnly = false;
 
   @override
   void initState() {
@@ -420,6 +423,7 @@ class _InputWidgetView
           ],
           Flexible(
             child: TextFormField(
+              readOnly: widget.readOnly,
               key: widget.fieldKey ?? Key(TestHelper.TextInputKeyValue),
               textDirection: TextDirection.ltr,
               controller: state.controller,
