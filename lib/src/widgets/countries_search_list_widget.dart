@@ -156,15 +156,15 @@ class DirectionalCountryListTile extends StatelessWidget {
           '${Utils.getCountryName(country, locale)}',
           textDirection: Directionality.of(context),
           textAlign: TextAlign.start,
+          style: TextStyle(color: Color(0xff454544)),
         ),
       ),
       subtitle: Align(
         alignment: AlignmentDirectional.centerStart,
-        child: Text(
-          '${country.dialCode ?? ''}',
-          textDirection: TextDirection.ltr,
-          textAlign: TextAlign.start,
-        ),
+        child: Text('${country.dialCode ?? ''}',
+            textDirection: TextDirection.ltr,
+            textAlign: TextAlign.start,
+            style: TextStyle(color: Color(0xff454544))),
       ),
       onTap: () => Navigator.of(context).pop(country),
     );
